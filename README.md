@@ -2,11 +2,11 @@
 Solve Problems in http://www.pythonchallenge.com
 
 #### 7
-result: 
+result: http://www.pythonchallenge.com/pc/def/integrity.html
 ```
 from PIL import Image
 ```
-
+use PIL module to find the block's pixel with getpixel, then use chr() to translate the code
 
 #### 6
 result: http://www.pythonchallenge.com/pc/def/oxygen.html
