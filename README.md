@@ -1,12 +1,21 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
-##### 6
+#### 7
+result: 
+```
+from PIL import Image
+```
+
+
+#### 6
 result: http://www.pythonchallenge.com/pc/def/oxygen.html
 ```
-import zip
+import zipfile
 ```
 zip file not only can bi unzip, can contains a lot of comments.
+
+every level will play with a new lib.
 
 
 #### 5
