@@ -1,6 +1,6 @@
 import pickle
 
-src = open('banner.p', 'rb')
+src = open('pickle/banner.p', 'rb')
 result = pickle.load(src)
 
 
