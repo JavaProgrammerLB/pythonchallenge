@@ -1,15 +1,23 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+##### 6
+result: http://www.pythonchallenge.com/pc/def/oxygen.html
+```
+import zip
+```
+zip file not only can bi unzip, can contains a lot of comments.
+
+
 #### 5
-http://www.pythonchallenge.com/pc/def/channel.html
+result: http://www.pythonchallenge.com/pc/def/channel.html
 ```
 import pickle
 ```
 every line elements add up to 96
 
 #### 4
-http://www.pythonchallenge.com/pc/def/peak.html
+result: http://www.pythonchallenge.com/pc/def/peak.html
 
 ```
 import requests
