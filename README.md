@@ -1,12 +1,17 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 9
+result:http://www.pythonchallenge.com/pc/return/bull.html
+
+the html knowledge learn from 8 help me.
+
 #### 8
 result: http://www.pythonchallenge.com/pc/return/good.html  
 
 un:huge pw:file
 
-html knowledge: img-usemap="#--", area, sharp, poly, coords. 
+html knowledge: img-usemap="#--", map, area, sharp, poly, coords. 
 ```
 import bz2
 ```
