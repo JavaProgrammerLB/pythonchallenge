@@ -2,7 +2,14 @@
 Solve Problems in http://www.pythonchallenge.com
 
 #### 8
-result: 
+result: http://www.pythonchallenge.com/pc/return/good.html  
+
+un:huge pw:file
+
+html knowledge: img-usemap="#--", area, sharp, poly, coords. 
+```
+import bz2
+```
 
 #### 7
 result: http://www.pythonchallenge.com/pc/def/integrity.html
