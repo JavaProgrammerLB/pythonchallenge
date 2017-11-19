@@ -1,6 +1,20 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 10
+result: http://www.pythonchallenge.com/pc/return/5808.html
+
+with pycharm IDE, I can debug the code easier.
+
+the method of find rule of **a** is:look at **a[i - 1]**, do count    
+1  
+the next is one 1: 11  
+the next is two 1: 21  
+the next is one 2 one 1: 1211  
+the next is one 1 one 2 two 2: 111221  
+the next is three 1 two 2 one 1: 312211  
+
+
 #### 9
 result:http://www.pythonchallenge.com/pc/return/bull.html
 
