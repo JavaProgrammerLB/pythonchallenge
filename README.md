@@ -1,12 +1,21 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 14
+result: 
+
+
 #### 13
 result: http://www.pythonchallenge.com/pc/return/italy.html
 ```
 import xmlrpc.client
 ```
 It's amazing that RPC tech has so much long history.
+
+
+>system.listMethods   
+This method returns a list of the methods the server has, by name.
+
 
 POST below with application/xml to server.
 ```
