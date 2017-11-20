@@ -18,5 +18,3 @@ def maketrans(s):
 
 print(maketrans(s1))
 print(maketrans(s2))
-
-s2.maketrans()
