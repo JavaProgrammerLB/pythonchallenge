@@ -2,6 +2,9 @@
 Solve Problems in http://www.pythonchallenge.com
 
 #### 12
+result: http://www.pythonchallenge.com/pc/return/disproportional.html
+
+use python IO to divide the gfx into 5(5 is the count of playing card in the pic) jpg files.
 
 #### 11
 result: http://www.pythonchallenge.com/pc/return/evil.html
