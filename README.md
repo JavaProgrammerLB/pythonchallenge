@@ -21,7 +21,7 @@ POST below with application/xml to server.
    </methodCall>
 ```
 
-Question **12** evil4.jpg tell us the evil is Bert(IE can open evil4.jpg).
+Question **12** evil4.jpg tell us the evil is Bert(IE can open evil4.jpg or change the suffix to .txt).
 
 #### 12
 result: http://www.pythonchallenge.com/pc/return/disproportional.html
