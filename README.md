@@ -1,13 +1,15 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 12
+
 #### 11
 result: http://www.pythonchallenge.com/pc/return/evil.html
 ```
 from PIL import Image
 from PIL import ImageDraw
 ```
-the hint is in the html'title odd, even
+the hint is in the html'title: odd, even
 
 #### 10
 result: http://www.pythonchallenge.com/pc/return/5808.html
