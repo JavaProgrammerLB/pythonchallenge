@@ -1,6 +1,20 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 15
+result: http://www.pythonchallenge.com/pc/return/mozart.html
+
+```python
+from calendar import isleap
+from datetime import date
+```
+
+- year 1756 is a leap year
+- 1756-1-27 is Tursday
+- mozart's birthday is 1756-1-27
+- mozart is the second youngest boy in his family
+
+
 #### 14
 result: http://www.pythonchallenge.com/pc/return/uzi.html
 ```
