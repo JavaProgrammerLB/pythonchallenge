@@ -9,8 +9,10 @@ def getNext(arg):
     ary = cont.split(' ')
     next_arg = ary[-1]
     if next_arg.isdigit():
-        getNext(ary[-1])
+        print(next_arg)
+        getNext(next_arg)
     else:
         print("result is: {}".format(next_arg))
+
 
 getNext(12345)
