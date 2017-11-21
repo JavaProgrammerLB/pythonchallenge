@@ -2,7 +2,7 @@ from PIL import Image
 from PIL import ImageDraw
 
 im = Image.open("wire/wire.png")
-result = Image.new("RGB", (400, 50), "white")
+result = Image.new("RGB", (100, 100), "white")
 drawer = ImageDraw.Draw(result)
 
 im_size = im.size
@@ -16,29 +16,13 @@ result_y = result_size[1]
 count = 0
 x = 0
 y = 0
-flag = 1
-len = 100
 while y < result_y:
-    while x < len:
-        drawer.point((x, y), im.getpixel((count, 0)))
-        print("y is {}, x is {}, count is {}".format(y, x, count))
+    while x < result_x:
+        # print("count is {}, im.getpixel((count,0)) is{}".format(count,im.getpixel((count, 0))))
+        drawer.point((x, y), im.getpixel((count,0)))
         x += 1
         count += 1
-    if flag %4 == 0:
-        y += 1
-        x = 0
-    if flag % 2 == 1:
-        len -= 1
-    flag += 1
+    y += 1
+    x = 0
 
 result.show()
-
-"""
-1 100
-2 99
-3 99
-4 98
-
-5 98
-6 97
-"""
