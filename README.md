@@ -2,8 +2,23 @@
 Solve Problems in http://www.pythonchallenge.com
 
 #### 14
-result: 
-
+result: http://www.pythonchallenge.com/pc/return/uzi.html
+```
+from PIL import Image
+from PIL import ImageDraw
+```
+- the key of this problem is to use 100 * 100 = 100 + 99 + 99 + 98 + 98 + 97 + 97 + ...
+- the size of cat.png is 100 * 100
+- use ImageDraw.point()  
+- result is "wire/cat.png" 
+```
+while(
+    left(0,0) -> right(99,0)  100
+    up(99,1) -> down(99,99)   99
+    right(99,98) -> left(99,0) 99
+    down(98,0) -> up (1,0) 98
+)
+```
 
 #### 13
 result: http://www.pythonchallenge.com/pc/return/italy.html
