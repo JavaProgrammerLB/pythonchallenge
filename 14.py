@@ -16,16 +16,29 @@ result_y = result_size[1]
 count = 0
 x = 0
 y = 0
+flag = 1
+len = 100
 while y < result_y:
-    while x < result_x:
+    while x < len:
         drawer.point((x, y), im.getpixel((count, 0)))
         print("y is {}, x is {}, count is {}".format(y, x, count))
         x += 1
         count += 1
-    if y % 2 == 0:
-        result_x -= 1
-    y += 1
-    x = 0
-
+    if flag %4 == 0:
+        y += 1
+        x = 0
+    if flag % 2 == 1:
+        len -= 1
+    flag += 1
 
 result.show()
+
+"""
+1 100
+2 99
+3 99
+4 98
+
+5 98
+6 97
+"""
