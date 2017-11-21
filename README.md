@@ -1,6 +1,14 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 16
+result: http://www.pythonchallenge.com/pc/return/romance.html
+```python
+from PIL import Image
+```
+- this gif is a P mode picture which use one 8 bit number to declare a color
+- straight is a way to handle these pixels
+
 #### 15
 result: http://www.pythonchallenge.com/pc/return/mozart.html
 
