@@ -41,3 +41,4 @@ for i in range(len(ary2)):
     for j in range(len(ary2[i])):
         sum += ary2[i][j]
     print(sum)
+    print(len(ary2))
