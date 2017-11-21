@@ -25,7 +25,7 @@ from datetime import date
 
 #### 14
 result: http://www.pythonchallenge.com/pc/return/uzi.html
-```
+```python
 from PIL import Image
 from PIL import ImageDraw
 ```
@@ -44,7 +44,7 @@ while(
 
 #### 13
 result: http://www.pythonchallenge.com/pc/return/italy.html
-```
+```python
 import xmlrpc.client
 ```
 It's amazing that RPC tech has so much long history.
@@ -55,7 +55,7 @@ This method returns a list of the methods the server has, by name.
 
 
 POST below with application/xml to server.
-```
+```xml
 <?xml version="1.0"?>
 <methodCall>
    <methodName>phone</methodName>
@@ -76,7 +76,7 @@ use python IO to divide the gfx into 5(5 is the count of playing card in the pic
 
 #### 11
 result: http://www.pythonchallenge.com/pc/return/evil.html
-```
+```python
 from PIL import Image
 from PIL import ImageDraw
 ```
@@ -107,20 +107,20 @@ result: http://www.pythonchallenge.com/pc/return/good.html
 un:huge pw:file
 
 html knowledge: img-usemap="#--", map, area, sharp, poly, coords. 
-```
+```python
 import bz2
 ```
 
 #### 7
 result: http://www.pythonchallenge.com/pc/def/integrity.html
-```
+```python
 from PIL import Image
 ```
 use PIL module to find the block's pixel with getpixel(), then use chr() to translate the code
 
 #### 6
 result: http://www.pythonchallenge.com/pc/def/oxygen.html
-```
+```python
 import zipfile
 ```
 zip file not only can bi unzip, can contains a lot of comments.
@@ -130,7 +130,7 @@ every level will play with a new lib.
 
 #### 5
 result: http://www.pythonchallenge.com/pc/def/channel.html
-```
+```python
 import pickle
 ```
 every line elements add up to 96
@@ -138,7 +138,7 @@ every line elements add up to 96
 #### 4
 result: http://www.pythonchallenge.com/pc/def/peak.html
 
-```
+```python
 import requests
 ```
 this is a http client lib with to do http request.
