@@ -1,6 +1,13 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 18
+- the obvious different between two picture is brightness.
+
+```shell
+gunzip deltas.gz
+```
+
 #### 17
 result: http://www.pythonchallenge.com/pc/return/balloons.html
 
