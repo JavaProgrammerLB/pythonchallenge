@@ -11,7 +11,7 @@ gunzip deltas.gz
 #### 17
 result: http://www.pythonchallenge.com/pc/return/balloons.html
 
-this is funny.
+1.
 
 #### 16
 result: http://www.pythonchallenge.com/pc/return/romance.html
