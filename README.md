@@ -2,6 +2,9 @@
 Solve Problems in http://www.pythonchallenge.com
 
 #### 18
+result: http://www.pythonchallenge.com/pc/hex/bin.html
+username:butter password:fly
+
 ```python
 import difflib
 ```
