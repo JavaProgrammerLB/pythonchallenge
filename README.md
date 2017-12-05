@@ -1,6 +1,18 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 19
+result: http://www.pythonchallenge.com/pc/hex/idiot2.html
+```python
+import base64
+import wave
+```
+- use base64 to decode these codes
+- use wave to reand and write frame
+- the sea is yellow the land is blue，which is out of order
+- if you email to leopold with “sorry”, you will find a surprise
+
+
 #### 18
 result: http://www.pythonchallenge.com/pc/hex/bin.html
 username:butter password:fly
