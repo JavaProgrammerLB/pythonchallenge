@@ -14,7 +14,7 @@ gunzip deltas.gz
 - 0x89 is png's magic number,all jpg file start with 0xFF
 - 0x50 decode in utf-8 is P, 0x4E for N, 0x47 for G
 - use three tag "+", "-", " " to describe the difference between two files
-> when you say a php file, there is some function in it
+> when you say a php file, there are some function in it
 - Loop: http://www.pythonchallenge.com/pc/def/linkedlist.php
 - RPC: http://www.pythonchallenge.com/pc/phonebook.php
 
