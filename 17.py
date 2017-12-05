@@ -1,10 +1,16 @@
-import http.cookiejar, urllib.request, urllib.parse
+from http.cookiejar import CookieJar
+import urllib.parse
 import bz2
-import http.cookies
+import requests
 
 
 def main():
-    cookie_jar = http.cookiejar.CookieJar()
+    first_step()
+    # second_step()
+
+
+def first_step():
+    cookie_jar = CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
     ary = []
     next_number = open_url(cookie_jar, opener, "12345", ary)
@@ -17,8 +23,7 @@ def main():
     print("ary length is {}".format(len(ary)))
     print("bs is {}", encoded_string)
     password = bz2.decompress(str.encode(encoded_string, "latin1"))
-    print("pw is {}".format(password))
-
+    print("{}".format(password.decode()))
 
 
 def open_url(cookie_jar, opener, number, ary):
@@ -50,6 +55,14 @@ def find_next_number(doc):
         return "-1"
     number = doc[index + length:]
     return number
+
+
+def second_step():
+    php_url = "http://www.pythonchallenge.com/pc/stuff/violin.php"
+    cookies = {"info":"the flowers are on their way"}
+    res = requests.get(php_url, cookies=cookies)
+    response_doc = res.text
+    print(response_doc)
 
 
 if __name__ == "__main__":

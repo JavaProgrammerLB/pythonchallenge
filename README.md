@@ -10,8 +10,22 @@ gunzip deltas.gz
 
 #### 17
 result: http://www.pythonchallenge.com/pc/return/balloons.html
+```python
+from http.cookiejar import CookieJar
+import urllib.parse
+import bz2
+import requests
+```
+- the small pic in left bottom director us to  [Level 3](http://www.pythonchallenge.com/pc/def/linkedlist.php)
+- use CookieJar to catch cookies
+- use bz2 to decompress
 
-1.
+> is it the 26th already? call his father and inform him that "the flowers are on their way". he\'ll understand.
+- 26th director us to [Level 15](http://www.pythonchallenge.com/pc/return/uzi.html)
+- mozart‘s farther is *Leopold Mozart*
+- *call* director us to [phonebook in Level 12](http://www.pythonchallenge.com/pc/phonebook.php)
+- Level 12 *Bert* tell us to use the first name
+- inform him let us remember that the cookies are {"info":"value"}
 
 #### 16
 result: http://www.pythonchallenge.com/pc/return/romance.html
