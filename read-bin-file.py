@@ -1,5 +1,5 @@
-def main():
-    file = open("swan/plus.png", "rb")
+def read_bin_file():
+    file = open("evil/0.jpg", "rb")
     bs = []
     while True:
         b = file.read()
@@ -11,4 +11,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    read_bin_file()
