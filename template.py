@@ -1,4 +1,8 @@
 def main():
+    first_step()
+
+
+def first_step():
     pass
 
 
