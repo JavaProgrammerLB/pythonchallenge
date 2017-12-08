@@ -1,6 +1,15 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 21
+result: http://www.pythonchallenge.com/pc/hex/copper.html
+```python
+import zlib
+import bz2
+```
+- Here is a [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures)
+
+
 #### 20
 result: password is redavni
 ```python
@@ -23,9 +32,9 @@ import base64
 import wave
 ```
 - use base64 to decode these codes
-- use wave to reand and write frame
+- use wave to read and write frame
 - the sea is yellow the land is blue，which is out of order
-- if you email to leopold with “sorry”, you will find a surprise
+- if you email to leopold with “sorry” as subject, you will get a surprise
 
 
 #### 18
