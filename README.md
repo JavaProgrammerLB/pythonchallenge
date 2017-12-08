@@ -1,6 +1,21 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 20
+result: password is redavni
+```python
+import requests
+import zipfile
+```
+- requests is a good lib for http request
+- request an url with username and password
+- breakpoint resume
+- you shoule know a http header {"RANGE":"bytes 0-500"}
+- revers
+- ZIP file Magic number: none or "PK\x03\x04" or "PK\x05\x06"(empty) or "PK\x07\x08"(spanned), PK for Phil Katz
+- find points in 2123456789 points
+
+
 #### 19
 result: http://www.pythonchallenge.com/pc/hex/idiot2.html
 ```python
