@@ -1,5 +1,5 @@
-def read_bin_file():
-    file = open("evil/0.jpg", "rb")
+def read_bin_file(file_path):
+    file = open(file_path, "rb")
     bs = []
     while True:
         b = file.read()
@@ -11,4 +11,4 @@ def read_bin_file():
 
 
 if __name__ == "__main__":
-    read_bin_file()
+    read_bin_file("copper/white.gif")
