@@ -1,6 +1,14 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 23
+result: http://www.pythonchallenge.com/pc/hex/ambiguity.html
+```python
+import this
+```
+- rot13
+- ** this ** is an undocumented module.
+
 #### 22
 result: http://www.pythonchallenge.com/pc/hex/bonus.html
 ```python
