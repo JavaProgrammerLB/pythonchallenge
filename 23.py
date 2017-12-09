@@ -2,31 +2,42 @@ import this
 
 
 def main():
-    this_this = first_step()
     hint = "va gur snpr bs jung?"
-    second_step(hint, this_this)
+    first_step(hint)
+    hint2 = "in the face of what?"
+    second_step("va gur snpr bs")
 
 
-def first_step():
-    return this.s
+def first_step(hint):
+    rot13(hint)
 
 
-def second_step(hint, this_this):
-    hint_ary = hint.split(" ")
-    len_hint_ary = []
-    for element in hint_ary:
-        len_hint_ary.append(len(element))
-    print(len_hint_ary)
+def rot13(s):
+    result = ""
+    for c in s:
+        if c.isalpha():
+            ord_c = ord(c)
+            ord_c_plus_13 = ord(c) + 13
+            if ord_c >= ord("a") and ord_c <= ord("z"):
+                if ord_c_plus_13 > ord("z"):
+                    c = chr(ord_c_plus_13 - 26)
+                else:
+                    c = chr(ord_c_plus_13)
+            elif ord_c >= ord("A") and ord_c <= ord("Z"):
+                if ord_c_plus_13 > ord("Z"):
+                    c = chr(ord_c_plus_13 - 26)
+                else:
+                    c = chr(ord_c_plus_13)
+        result += c
+    return result
 
-    lines_of_this = str(this_this).split("\n")
-    print(lines_of_this)
-    len_str_in_line = []
-    for line in lines_of_this:
-        str_in_line = line.split(" ")
-        for str_ele in str_in_line:
-            len_str_in_line.append(len(str_ele))
-        print(len_str_in_line)
-        len_str_in_line = []
+
+def second_step(hint2):
+    this_content = this.s
+    lines = this_content.split("\n")
+    for line in lines:
+        if hint2 in line.lower():
+            print(rot13(line))
 
 
 if __name__ == "__main__":
