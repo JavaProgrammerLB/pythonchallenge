@@ -1,6 +1,24 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 22
+result: http://www.pythonchallenge.com/pc/hex/bonus.html
+```python
+from PIL import Image
+from PIL import ImageSequence
+import turtle, time
+```
+- use ImageSequence to get the frame number of a gif
+
+```python
+a = 10
+b = 3
+print(a / b) # 3.3333333333333335
+print(a // b) # 2
+print(a % b) # 1 
+```
+
+
 #### 21
 result: http://www.pythonchallenge.com/pc/hex/copper.html
 ```python
