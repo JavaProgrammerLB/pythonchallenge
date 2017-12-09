@@ -7,7 +7,7 @@ result: http://www.pythonchallenge.com/pc/hex/ambiguity.html
 import this
 ```
 - rot13
-- ** this ** is an undocumented module.
+- **this** is an undocumented module.
 
 #### 22
 result: http://www.pythonchallenge.com/pc/hex/bonus.html
