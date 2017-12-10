@@ -29,14 +29,14 @@ def third_step(im, start, width, height):
     x = start[0]
     y = start[1]
     ok_points = [(x, y)]
-    one_way(im, start, x, y, 0, ok_points)
+    one_way(im, start, x, y, ok_points)
 
 
-def one_way(im, start, x, y, key, ok_points):
+def one_way(im, start, x, y, ok_points):
     while True:
-        print("key={}, ok_points={}".format(key, ok_points))
+        print("ok_points={}".format(ok_points))
         next_points = find_next_point(im, x, y, ok_points)
-        print("key={}, point=({}, {}),next_point={}".format(key, x, y, next_points))
+        print("point=({}, {}),next_point={}".format(x, y, next_points))
         if next_points is None:
             print("break code 1")
             break
@@ -46,11 +46,9 @@ def one_way(im, start, x, y, key, ok_points):
                 y = next_points[0][1]
                 ok_points.append((x, y))
             else:
-                for point in next_points:
-                    key += 1
-                    x = point[0]
-                    y = point[1]
-                    one_way(im, start, x, y, key, ok_points)
+                print("len(next_points)={}".format(len(next_points)))
+                print("break code 2")
+                break
 
 
 def find_next_point(im, x, y, ok_points):
