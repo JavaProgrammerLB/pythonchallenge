@@ -1,13 +1,16 @@
-from PIL import Image, ImageSequence
+from PIL import Image
+import logging
 
 
 def main():
+    logging.basicConfig(filename="maze/24.log", filemode="w", level=logging.DEBUG,
+                        format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
     file_path = "maze/maze.png"
     im = first_step(file_path)
     im_size = im.size
     width = im_size[0]  # 641
     height = im_size[1]  # 641
-    second_step(im, height)
+    # second_step(im, height)
     start = (639, 0)
     third_step(im, start, width, height)
 
@@ -28,30 +31,43 @@ def second_step(im, height):
 def third_step(im, start, width, height):
     x = start[0]
     y = start[1]
+    way = "0"
+    max_key = int(way)
     ok_points = [(x, y)]
-    one_way(im, start, x, y, ok_points)
+    ok_points_dic = {way: ok_points}
+    one_way(im, x, y, ok_points_dic, max_key)
 
 
-def one_way(im, start, x, y, ok_points):
+def one_way(im, x, y, ok_points_dic, max_key):
     while True:
-        print("ok_points={}".format(ok_points))
-        next_points = find_next_point(im, x, y, ok_points)
-        print("point=({}, {}),next_point={}".format(x, y, next_points))
-        if next_points is None:
-            print("break code 1")
-            break
-        else:
-            if len(next_points) == 1:
-                x = next_points[0][0]
-                y = next_points[0][1]
-                ok_points.append((x, y))
-            else:
-                print("len(next_points)={}".format(len(next_points)))
-                print("break code 2")
+        logging.debug("ok_points_dic={}".format(ok_points_dic))
+        keys = ok_points_dic.keys()
+        to_be_delete = set()
+        to_be_add_dict = dict()
+        for way in keys:
+            way_ok_points = ok_points_dic.get(way)
+            next_points = find_next_point(im, x, y, way_ok_points, way)
+            if next_points is None:
+                logging.debug("break code 1")
+                to_be_delete.add(way)
+                logging.debug("add way={} to be delete, because next_points is None".format(way))
                 break
+            else:
+                for point in next_points:
+                    max_key += 1
+                    to_be_delete.add(way)
+                    logging.debug("add way={}to to be delete, because create a new one={}".format(way, max_key))
+                    to_be_add_dict[str(max_key)] = way_ok_points
+                    x = point[0]
+                    y = point[1]
+                    way_ok_points.append((x, y))
+        for element in to_be_delete:
+            del ok_points_dic[element]
+        for key in to_be_add_dict.keys():
+            ok_points_dic[key] = to_be_add_dict[key]
 
 
-def find_next_point(im, x, y, ok_points):
+def find_next_point(im, x, y, ok_points, way):
     right_x = x + 1
     left_x = x - 1
     up_y = y - 1
@@ -89,13 +105,14 @@ def find_next_point(im, x, y, ok_points):
     if down_y_pixel is not None and down_y_pixel != (255, 255, 255, 255):
         print("x={}, down_y={}, down_y_pixel={}".format(x, down_y, down_y_pixel))
         points.append(down_point)
-    print("right_x_pixel={}, left_x_pixel={}, up_y_pixel={}, down_y_pixel={}".format(right_x_pixel, left_x_pixel,
+    logging.debug("way={}, x={}, y={}, right_x_pixel={}, left_x_pixel={}, up_y_pixel={}, down_y_pixel={}".format(way, x, y, right_x_pixel, left_x_pixel,
                                                                                      up_y_pixel, down_y_pixel))
     for point in points:
         if point in ok_points:
+            logging.debug("way={}, remove point={}".format(way, point))
             points.remove(point)
     if len(points) < 1:
-        print("points为None，x={}, y={}".format(x, y))
+        # print("points为None，x={}, y={}".format(x, y))
         return None
     return points
 
