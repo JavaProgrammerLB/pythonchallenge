@@ -1,6 +1,11 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 24
+result:
+
+
+
 #### 23
 result: http://www.pythonchallenge.com/pc/hex/ambiguity.html
 ```python
