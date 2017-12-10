@@ -4,7 +4,7 @@ import logging
 
 def main():
     logging.basicConfig(filename="maze/24.log", filemode="w", level=logging.DEBUG,
-                        format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
+                        format='%(asctime)s=>%(message)s')
     file_path = "maze/maze.png"
     im = first_step(file_path)
     im_size = im.size
@@ -108,8 +108,9 @@ def find_next_point(im, x, y, ok_points, way):
     logging.debug("way={}, x={}, y={}, right_x_pixel={}, left_x_pixel={}, up_y_pixel={}, down_y_pixel={}".format(way, x, y, right_x_pixel, left_x_pixel,
                                                                                      up_y_pixel, down_y_pixel))
     for point in points:
-        if point in ok_points:
-            logging.debug("way={}, remove point={}".format(way, point))
+        now_index = ok_points.index((x, y))
+        before = ok_points[now_index - 1]
+        if before == point:
             points.remove(point)
     if len(points) < 1:
         # print("points为None，x={}, y={}".format(x, y))
