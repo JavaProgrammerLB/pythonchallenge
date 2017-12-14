@@ -60,11 +60,13 @@ def one_way(im, x, y, ok_points_dic, max_key):
                     to_be_add_dict[str(max_key)] = way_ok_points
                     x = point[0]
                     y = point[1]
-                    way_ok_points.append((x, y))
-        for element in to_be_delete:
-            del ok_points_dic[element]
+                    new_points = to_be_add_dict.get(str(max_key))
+                    new_points.append((x, y))
+                    to_be_add_dict[str(max_key)] = new_points
         for key in to_be_add_dict.keys():
             ok_points_dic[key] = to_be_add_dict[key]
+        for element in to_be_delete:
+            del ok_points_dic[element]
 
 
 def find_next_point(im, x, y, ok_points, way):
