@@ -31,45 +31,55 @@ def second_step(im, height):
 def third_step(im, start, width, height):
     x = start[0]
     y = start[1]
+    point_ary = [(x, y)]
     way = "0"
-    max_key = int(way)
-    ok_points = [(x, y)]
-    ok_points_dic = {way: ok_points}
-    one_way(im, x, y, ok_points_dic, max_key)
+    ways = {way: point_ary}
+    go_to_end(im, x, y, point_ary, way, ways)
 
 
-def one_way(im, x, y, ok_points_dic, max_key):
-    while True:
-        logging.debug("ok_points_dic={}".format(ok_points_dic))
-        keys = ok_points_dic.keys()
-        to_be_delete = set()
-        to_be_add_dict = dict()
-        for way in keys:
-            way_ok_points = ok_points_dic.get(way)
-            next_points = find_next_point(im, x, y, way_ok_points, way)
-            if next_points is None:
-                logging.debug("break code 1")
-                to_be_delete.add(way)
-                logging.debug("add way={} to be delete, because next_points is None".format(way))
-                break
-            else:
-                for point in next_points:
-                    max_key += 1
-                    to_be_delete.add(way)
-                    logging.debug("add way={}to to be delete, because create a new one={}".format(way, max_key))
-                    to_be_add_dict[str(max_key)] = way_ok_points
-                    x = point[0]
-                    y = point[1]
-                    new_points = to_be_add_dict.get(str(max_key))
-                    new_points.append((x, y))
-                    to_be_add_dict[str(max_key)] = new_points
-        for key in to_be_add_dict.keys():
-            ok_points_dic[key] = to_be_add_dict[key]
-        for element in to_be_delete:
-            del ok_points_dic[element]
+def router(im, points, way, ways):
+    logging.info("router start: ways={}".format(ways))
+    tmp_way_value = ways[way]
+    logging.info("delting way={}".format(way))
+    del ways[way]
+    for i in range(len(points)):
+        point = points[i]
+        next_way = str(int(way) + 1 + i)
+        logging.info("next_way={}".format(next_way))
+        ways[next_way] = tmp_way_value
+        x = point[0]
+        y = point[1]
+        next_point_ary = ways[next_way]
+        next_point_ary.append((x, y))
+    ways_keys = ways.keys()
+    for key in ways_keys:
+        now_points = ways[key]
+        now_points_tail = now_points[-1]
+        x = now_points_tail[0]
+        y = now_points_tail[1]
+        go_to_end(im, x, y, now_points, key, ways)
+    logging.info("router end: ways={}".format(ways))
 
 
-def find_next_point(im, x, y, ok_points, way):
+def go_to_end(im, x, y, point_ary, way, ways):
+    logging.info("go_to_end start: ways={}".format(ways))
+    points = find_next_point(im, x, y, point_ary)
+    if points is None:
+        logging.info("delting way={}".format(way))
+        del ways[way]
+    else:
+        len_points = len(points)
+        if len_points == 1:
+            x = points[0][0]
+            y = points[0][1]
+            point_ary.append((x, y))
+            go_to_end(im, x, y, point_ary, way, ways)
+        else:
+            router(im, points, way, ways)
+
+
+def find_next_point(im, x, y, ok_points):
+    logging.info("now is ({}, {}) finding next_point".format(x, y))
     right_x = x + 1
     left_x = x - 1
     up_y = y - 1
@@ -95,28 +105,29 @@ def find_next_point(im, x, y, ok_points, way):
     left_point = left_x, y
     up_point = x, up_y
     down_point = x, down_y
+    next_director = {}
     if right_x_pixel is not None and right_x_pixel != (255, 255, 255, 255):
-        print("right_x={}, y={}, right_x_pixel={}".format(right_x, y, right_x_pixel))
+        logging.info("right_x={}, y={}, right_x_pixel={}".format(right_x, y, right_x_pixel))
         points.append(right_point)
     if left_x_pixel is not None and left_x_pixel != (255, 255, 255, 255):
-        print("left_x={}, y={}, left_x_pixel={}".format(left_x, y, left_x_pixel))
+        logging.info("left_x={}, y={}, left_x_pixel={}".format(left_x, y, left_x_pixel))
         points.append(left_point)
     if up_y_pixel is not None and up_y_pixel != (255, 255, 255, 255):
-        print("x={}, up_y={}, up_y_pixel={}".format(x, up_y, up_y_pixel))
+        logging.info("x={}, up_y={}, up_y_pixel={}".format(x, up_y, up_y_pixel))
         points.append(up_point)
     if down_y_pixel is not None and down_y_pixel != (255, 255, 255, 255):
-        print("x={}, down_y={}, down_y_pixel={}".format(x, down_y, down_y_pixel))
+        logging.info("x={}, down_y={}, down_y_pixel={}".format(x, down_y, down_y_pixel))
         points.append(down_point)
-    logging.debug("way={}, x={}, y={}, right_x_pixel={}, left_x_pixel={}, up_y_pixel={}, down_y_pixel={}".format(way, x, y, right_x_pixel, left_x_pixel,
-                                                                                     up_y_pixel, down_y_pixel))
     for point in points:
         now_index = ok_points.index((x, y))
         before = ok_points[now_index - 1]
         if before == point:
+            logging.info("removing {}".format(point))
             points.remove(point)
     if len(points) < 1:
-        # print("points为None，x={}, y={}".format(x, y))
+        logging.info("return None")
         return None
+    logging.info("return points={}".format(points))
     return points
 
 
