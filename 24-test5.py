@@ -23,10 +23,13 @@ def remove_dic(dic, key):
 
 def start_operation(dic, pool):
     pool.submit(insert_dic, dic, "hello", "world")
+    pool.submit(remove_dic, dic, "hello")
+    pool.submit(insert_dic, dic, "liu", "bei")
+    pool.submit(insert_dic, dic, "hi", "happy")
 
 
 def main():
-    pool = ThreadPoolExecutor(max_workers=3)
+    pool = ThreadPoolExecutor(max_workers=10000)
     # req(pool)
     dic = {}
     start_operation(dic, pool)
