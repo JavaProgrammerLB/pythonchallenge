@@ -10,7 +10,7 @@ class Way:
 
 def main():
     file_path = "maze/maze.png"
-    log_file_path = "maze/log/mylog.log"
+    log_file_path = "maze/log/result.txt"
     handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=1024 * 1024, backupCount= 10000)
     fmt = "%(asctime)s=>%(message)s"
     formatter = logging.Formatter(fmt)
@@ -56,14 +56,17 @@ def third_step(start, points_pixels, logger):
         if len(ways) == 0:
             break
         else:
-            if len(ways) == 1:
-                logger.info("now_ways_pasts={}".format(now_way_pasts))
-
-            now_way = ways[0]
+            now_way = ways[-1]
             now_way_pasts = now_way.pasts
             print("len(ways)={}, now_ways_pasts={}".format(len(ways), now_way_pasts))
+            if len(ways) == 1:
+                logger.info("now_ways_pasts={}".format(now_way_pasts))
             x = now_way_pasts[-1][0]
             y = now_way_pasts[-1][1]
+            if y > 638:
+                logger.info("now_way={}, now_way's pasts={}".format(now_way, now_way.pasts))
+                if y == 640:
+                    break
             points = find_next_point(points_pixels, x, y, now_way_pasts, logger)
             if points is None:
                 ways.remove(now_way)
@@ -73,15 +76,13 @@ def third_step(start, points_pixels, logger):
                     next_point = points[0]
                     next_point_x = next_point[0]
                     next_point_y = next_point[1]
-                    if next_point_y == 640:
-                        logger.info("now_way={}, now_way's pasts={}, next_point={}".format(now_way, now_way.pasts, next_point))
-                        break
                     now_way_pasts.append((next_point_x, next_point_y))
                 elif len_points > 1:
                     for point in points:
-                        tmp_pasts = now_way_pasts.copy()
-                        tmp_pasts.append(point)
-                        new_way = Way(tmp_pasts)
+                        new_way = Way([])
+                        new_way_pasts = new_way.pasts
+                        new_way_pasts.extend(now_way_pasts)
+                        new_way_pasts.append(point)
                         ways.append(new_way)
                     ways.remove(now_way)
 
