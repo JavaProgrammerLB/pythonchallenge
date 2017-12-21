@@ -56,15 +56,16 @@ def third_step(start, points_pixels, logger):
         if len(ways) == 0:
             break
         else:
+            if len(ways) == 1:
+                logger.info("now_ways_pasts={}".format(now_way_pasts))
+
             now_way = ways[0]
             now_way_pasts = now_way.pasts
-            logger.info("len(ways)={}, now_ways_pasts={}".format(len(ways), now_way_pasts))
+            print("len(ways)={}, now_ways_pasts={}".format(len(ways), now_way_pasts))
             x = now_way_pasts[-1][0]
             y = now_way_pasts[-1][1]
             points = find_next_point(points_pixels, x, y, now_way_pasts, logger)
             if points is None:
-                # logger.info("removing a way, now_way's pasts={}".format(now_way.pasts))
-                print("removing a way, now_way's pasts={}".format(now_way.pasts))
                 ways.remove(now_way)
             else:
                 len_points = len(points)
@@ -73,6 +74,7 @@ def third_step(start, points_pixels, logger):
                     next_point_x = next_point[0]
                     next_point_y = next_point[1]
                     if next_point_y == 640:
+                        logger.info("now_way={}, now_way's pasts={}, next_point={}".format(now_way, now_way.pasts, next_point))
                         break
                     now_way_pasts.append((next_point_x, next_point_y))
                 elif len_points > 1:
@@ -85,7 +87,6 @@ def third_step(start, points_pixels, logger):
 
 
 def find_next_point(points_pixels, x, y, past, logger):
-    # logger.info("now is ({}, {}) finding next_point".format(x, y))
     right_x = x + 1
     left_x = x - 1
     up_y = y - 1
@@ -127,12 +128,9 @@ def find_next_point(points_pixels, x, y, past, logger):
         now_index = past.index((x, y))
         before = past[now_index - 1]
         if before == point:
-            # logging.info("removing {}".format(point))
             points.remove(point)
     if len(points) < 1:
-        # logger.info("return None")
         return None
-    # logger.info("return points={}".format(points))
     return points
 
 
