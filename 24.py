@@ -1,6 +1,7 @@
 from PIL import Image
 import logging
 import logging.handlers
+import constant
 
 
 class Way:
@@ -15,18 +16,8 @@ def main():
     # second_step(points_pixels, height)
     start = (639, 0)
     # third_step(start, points_pixels, logger)
-
-
-def set_logger():
-    log_file_path = "maze/log/mylog.log"
-    handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=1024 * 1024, backupCount=10000)
-    fmt = "%(asctime)s=>%(message)s"
-    formatter = logging.Formatter(fmt)
-    handler.setFormatter(formatter)
-    logger = logging.getLogger("maze/log/mylog")
-    logger.addHandler(handler)
-    logger.setLevel(logging.DEBUG)
-    return logger
+    points = constant.points
+    fourth_step(points_pixels, points)
 
 
 def first_step(file_path):
@@ -89,6 +80,29 @@ def third_step(start, points_pixels, logger):
                         new_way_pasts.append(point)
                         ways.append(new_way)
                     ways.remove(now_way)
+
+
+def fourth_step(points_pixels, points):
+    pixels = []
+    for point in points:
+        pixel = get_pixel(point[0], point[1], points_pixels)
+        pixels.append(pixel[0])
+    file = open("maze/maze.zip", "wb")
+    for element in pixels[1::2]:
+        file.write(chr(element).encode("latin1"))
+    print("Done")
+
+
+def set_logger():
+    log_file_path = "maze/log/mylog.log"
+    handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=1024 * 1024, backupCount=10000)
+    fmt = "%(asctime)s=>%(message)s"
+    formatter = logging.Formatter(fmt)
+    handler.setFormatter(formatter)
+    logger = logging.getLogger("maze/log/mylog")
+    logger.addHandler(handler)
+    logger.setLevel(logging.DEBUG)
+    return logger
 
 
 def find_next_point(points_pixels, x, y, past, logger):
