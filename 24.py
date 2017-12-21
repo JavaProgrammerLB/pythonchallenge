@@ -10,19 +10,23 @@ class Way:
 
 def main():
     file_path = "maze/maze.png"
-    log_file_path = "maze/log/result.txt"
-    handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=1024 * 1024, backupCount= 10000)
+    logger = set_logger()
+    points_pixels, width, height = first_step(file_path)
+    # second_step(points_pixels, height)
+    start = (639, 0)
+    # third_step(start, points_pixels, logger)
+
+
+def set_logger():
+    log_file_path = "maze/log/mylog.log"
+    handler = logging.handlers.RotatingFileHandler(log_file_path, maxBytes=1024 * 1024, backupCount=10000)
     fmt = "%(asctime)s=>%(message)s"
     formatter = logging.Formatter(fmt)
     handler.setFormatter(formatter)
     logger = logging.getLogger("maze/log/mylog")
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
-
-    points_pixels, width, height = first_step(file_path)
-    # second_step(points_pixels, height)
-    start = (639, 0)
-    third_step(start, points_pixels, logger)
+    return logger
 
 
 def first_step(file_path):
@@ -114,16 +118,12 @@ def find_next_point(points_pixels, x, y, past, logger):
     up_point = x, up_y
     down_point = x, down_y
     if right_x_pixel is not None and right_x_pixel != (255, 255, 255, 255):
-        # logger.info("right_x={}, y={}, right_x_pixel={}".format(right_x, y, right_x_pixel))
         points.append(right_point)
     if left_x_pixel is not None and left_x_pixel != (255, 255, 255, 255):
-        # logger.info("left_x={}, y={}, left_x_pixel={}".format(left_x, y, left_x_pixel))
         points.append(left_point)
     if up_y_pixel is not None and up_y_pixel != (255, 255, 255, 255):
-        # logger.info("x={}, up_y={}, up_y_pixel={}".format(x, up_y, up_y_pixel))
         points.append(up_point)
     if down_y_pixel is not None and down_y_pixel != (255, 255, 255, 255):
-        # logger.info("x={}, down_y={}, down_y_pixel={}".format(x, down_y, down_y_pixel))
         points.append(down_point)
     for point in points:
         now_index = past.index((x, y))
