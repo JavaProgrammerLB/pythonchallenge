@@ -2,7 +2,16 @@
 Solve Problems in http://www.pythonchallenge.com
 
 #### 24
-result:
+result: http://www.pythonchallenge.com/pc/hex/lake.html
+```python
+import logging
+```
+- logging helps me to do analyze
+```python
+import constant
+```
+- I put big size array in my custom constant.py, and i can import it
+- the author uses "latin1" Charset
 
 
 
