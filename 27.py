@@ -1,17 +1,17 @@
 import download_file
-import read_bin_file
 
 from PIL import Image
+from PIL import ImageSequence
 
 
 def main():
-    url = "http://www.pythonchallenge.com/pc/hex/zigzag.jpg"
-    file_path = "zigzag/zigzag.jpg"
+    file_name = "zigzag.gif"
+    url = "http://www.pythonchallenge.com/pc/hex/{}".format(file_name)
+    file_path = "zigzag/{}".format(file_name)
     user = "butter"
     password = "fly"
     # first_step(url, file_path, user, password)
-    # second_step(file_path)
-    third_step(file_path)
+    second_step(file_path)
 
 
 def first_step(url, file_path, user, password):
@@ -19,14 +19,14 @@ def first_step(url, file_path, user, password):
 
 
 def second_step(file_path):
-    ary = read_bin_file.read_bin_file(file_path)
-    print(ary)
-
-
-def third_step(file_path):
     im = Image.open(file_path)
-    print(im)
-    width, height = im.size
+    for frame in ImageSequence.Iterator(im):
+        width, height = frame.size
+        for x in range(width):
+            for y in range(height):
+                pixel = frame.getpixel((x, y))
+                print(pixel, end=" ")
+            print(" ")
 
 
 if __name__ == "__main__":
