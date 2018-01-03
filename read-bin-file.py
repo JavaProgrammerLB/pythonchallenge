@@ -18,4 +18,5 @@ if __name__ == "__main__":
     # read_bin_file("indian/indian.wav")
     # read_bin_file("indian/result.wav")
     # read_bin_file("maze/maze/mybroken.gif")
-    read_bin_file("lake/lake1.jpg")
+    # read_bin_file("lake/lake1.jpg")
+    read_bin_file("maze/maze/mybroken.zip")

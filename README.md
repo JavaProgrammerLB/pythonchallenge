@@ -1,6 +1,16 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 26
+result: http://www.pythonchallenge.com/pc/hex/speedboat.html
+```python
+import hashlib
+```
+- we get mybroken.zip in level 24
+- the decent means leopold mozart
+- we have sent an email to leopold mozart in level 19
+- fix the broken zip file to match the md5
+
 
 #### 25
 result: http://www.pythonchallenge.com/pc/hex/decent.html
