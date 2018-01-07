@@ -1,7 +1,6 @@
 import download_file
 
 from PIL import Image
-from PIL import ImageSequence
 
 
 def main():
@@ -11,7 +10,9 @@ def main():
     user = "butter"
     password = "fly"
     # first_step(url, file_path, user, password)
-    second_step(file_path)
+    raw, result = second_step(file_path)
+    raw_ary, result_ary = third_step(raw, result)
+    fourth_step(raw_ary, result_ary)
 
 
 def first_step(url, file_path, user, password):
@@ -20,13 +21,28 @@ def first_step(url, file_path, user, password):
 
 def second_step(file_path):
     im = Image.open(file_path)
-    for frame in ImageSequence.Iterator(im):
-        width, height = frame.size
-        for x in range(width):
-            for y in range(height):
-                pixel = frame.getpixel((x, y))
-                print(pixel, end=" ")
-            print(" ")
+    raw = im.tobytes()
+    palette = im.getpalette()[::3]
+    index = "".join([chr(i) for i in range(len(palette))])
+    value = "".join([chr(palette[i]) for i in range(len(palette))])
+    table = str.maketrans(index, value)
+    result = raw.decode("latin1").translate(table).encode("latin1")
+    return raw, result
+
+
+def third_step(raw, result):
+    raw_ary = []
+    result_ary = []
+    assert len(raw) == len(result)
+    l = len(raw)
+    for i in range(l):
+        raw_ary.append(raw[i])
+        result_ary.append(result[i])
+    return raw_ary, result_ary
+
+
+def fourth_step(raw_ary, result_ary):
+    pass
 
 
 if __name__ == "__main__":
