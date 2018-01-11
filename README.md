@@ -1,6 +1,14 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 27 
+result: http://www.pythonchallenge.com/pc/ring/bell.html auth=(repeat, switch)
+- author use python2 keyword, but there is some different with python3
+- use assert to do assert
+- tobytes() method for Image in PIL: Return image as a bytes object.
+- getpalette() method for Image in PIL:  Returns the image palette as a list.
+
+
 #### 26
 result: http://www.pythonchallenge.com/pc/hex/speedboat.html
 ```python
