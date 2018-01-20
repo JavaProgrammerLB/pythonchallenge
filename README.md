@@ -1,6 +1,11 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 29
+result: http://www.pythonchallenge.com/pc/ring/yankeedoodle.html
+- do you find these unnecessary empty lines  in the source page of guido.html
+
+
 #### 28
 result: http://www.pythonchallenge.com/pc/ring/guido.html 
 - use image.split() to split RGB channels
