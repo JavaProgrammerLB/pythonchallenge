@@ -11,7 +11,7 @@ result: http://www.pythonchallenge.com/pc/ring/guido.html
 
 #### 27 
 result: http://www.pythonchallenge.com/pc/ring/bell.html auth=(repeat, switch)
-- author use python2 keyword, but there is some different with python3
+- author use python2 keyword, which has some different with python3
 - use assert to do assert
 - tobytes() method for Image in PIL: Return image as a bytes object.
 - getpalette() method for Image in PIL:  Returns the image palette as a list.
