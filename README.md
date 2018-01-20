@@ -1,6 +1,14 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 28
+result: http://www.pythonchallenge.com/pc/ring/guido.html 
+- use image.split() to split RGB channels
+- im.bands() return number of im's channels
+- ring means "green" if you visit "green.html" will get response "yes"
+- whodunnit is an word means "who is the murderer"
+ 
+
 #### 27 
 result: http://www.pythonchallenge.com/pc/ring/bell.html auth=(repeat, switch)
 - author use python2 keyword, but there is some different with python3
