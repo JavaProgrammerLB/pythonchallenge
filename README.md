@@ -1,6 +1,14 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 30
+result: http://www.pythonchallenge.com/pc/ring/grandpa.html
+```python
+import csv
+```
+- csv lib for handle csv tables, csv for Comma-Separated Values
+- 7367 factored result: 53 and 139
+
 #### 29
 result: http://www.pythonchallenge.com/pc/ring/yankeedoodle.html
 - do you find these unnecessary empty lines  in the source page of guido.html
