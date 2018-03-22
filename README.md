@@ -1,6 +1,10 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 31
+- use firefox visit the url get the hint: island:country
+- username:kohsamui password:thailand
+
 #### 30
 result: http://www.pythonchallenge.com/pc/ring/grandpa.html
 ```python
