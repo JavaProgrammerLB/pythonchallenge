@@ -1,7 +1,16 @@
 # pythonchallenge
 Solve Problems in http://www.pythonchallenge.com
 
+#### 32
+##### use wget to download a file provider username and password
+1. user:password@domain url
+1. --user=${username} --password=${password}
+- wget http://kohsamui:thailand@www.pythonchallenge.com/pc/rock/warmup.txt
+- wget --user=kohsamui --password=thailand www.pythonchallenge.com/pc/rock/warmup.txt
+
 #### 31
+result : http://www.pythonchallenge.com/pc/rock/arecibo.html 
+- the picture lead to-> http://www.pythonchallenge.com/pc/rock/grandpa.html
 - use firefox visit the url get the hint: island:country
 - username:kohsamui password:thailand
 
