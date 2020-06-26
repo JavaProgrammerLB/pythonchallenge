@@ -1,1 +1,0 @@
-print("../dots/good.html")
